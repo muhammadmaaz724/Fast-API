@@ -3,21 +3,22 @@ import json
 
 app = FastAPI()
 
-def load():
-    with open("data.json",'r') as f:
+def load_data():
+    with open('data.json','r') as f:
         data = json.load(f)
+        
     return data
 
 @app.get("/")
 def home():
-    return({'Message':"This is a learning website"})
+    return ({'message':"This is my api learning journey"})
 
 @app.get("/about")
 def about():
-    return({"Message":"I am a Software Engineer"})
+    return({'message':'My name is Muhammad Maaz and I am a software Engineer'})
 
 @app.get("/view")
-def view_records():
-    data = load()
+def view():
+    data = load_data()
     
     return data
